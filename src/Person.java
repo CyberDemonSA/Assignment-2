@@ -1,6 +1,6 @@
 public abstract class Person implements Payable, Comparable<Person> {
     private static int id_gen = 0;
-    private int id;
+    private final int id;
     private String name;
     private String surname;
 
