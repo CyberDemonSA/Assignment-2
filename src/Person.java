@@ -1,6 +1,6 @@
-public class Person {
+public abstract class Person implements Payable {
     private int id;
-    private static int id_gen;
+    private static int id_gen = 0;
     private String name;
     private String surname;
 
@@ -32,5 +32,10 @@ public class Person {
 
     public String getSurname() { return surname; }
 
+    public abstract String getPosition();
 
+    @Override
+    public String toString() {
+        return getPosition() + ": " + id + ". " + name + " " + surname;
+    }
 }
