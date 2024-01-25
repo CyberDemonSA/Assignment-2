@@ -1,13 +1,15 @@
-public class Employee extends Person {
+public class Employee extends Person{
     private String position;
     private double salary;
 
-    public Employee(String name, String surname, String position, double salary){
+    public Employee(){
         super();
     }
 
-    public Employee(String position, double salary){
-        this(name, surname, position, salary);
+    public Employee(String name, String surname, String position, double salary){
+        this();
+        setName(name);
+        setSurname(surname);
         setPosition(position);
         setSalary(salary);
     }
@@ -29,7 +31,8 @@ public class Employee extends Person {
         return salary;
     }
 
+    @Override
     public double getPaymentAmount(){
-        return salary;
+        return getSalary();
     }
 }

@@ -1,5 +1,3 @@
-import java.security.PublicKey;
-
 public class Student extends Person {
     private String position;
     private double gpa;
@@ -8,8 +6,10 @@ public class Student extends Person {
         super();
     }
 
-    public Student(String position, double gpa){
+    public Student(String name, String surname, String position, double gpa){
         this();
+        setName(name);
+        setSurname(surname);
         setPosition(position);
         setGpa(gpa);
     }
@@ -31,10 +31,9 @@ public class Student extends Person {
         return gpa;
     }
 
+    @Override
     public double getPaymentAmount(){
-        double stipend;
-        if (gpa > 2.67){ stipend = 36660.00; }
-        else { stipend = 0;}
-        return stipend;
+        if (getGpa() > 2.67){ return 36660.00; }
+        else { return 0.0;}
     }
 }

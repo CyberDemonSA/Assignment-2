@@ -1,6 +1,6 @@
-public abstract class Person implements Payable {
-    private int id;
+public abstract class Person implements Payable, Comparable<Person> {
     private static int id_gen = 0;
+    private int id;
     private String name;
     private String surname;
 
@@ -36,6 +36,11 @@ public abstract class Person implements Payable {
 
     @Override
     public String toString() {
-        return getPosition() + ": " + id + ". " + name + " " + surname;
+        return getPosition() + ": " + getId() + ". " + getName() + " " + getSurname();
+    }
+
+    @Override
+    public int compareTo(Person other){
+        return Double.compare(this.getPaymentAmount(), other.getPaymentAmount());
     }
 }
